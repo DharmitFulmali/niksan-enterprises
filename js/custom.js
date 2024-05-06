@@ -112,9 +112,6 @@
 				},
 			})
 		}
-
-
-
 	}
 	tinyslier();
 
@@ -126,6 +123,97 @@
 	};
 	lightbox();
 
+	})();
 
+$( document ).ready(function() {
+    jQuery(".banner-slider").slick({
+		dots: true,
+		infinite: true,
+		speed: 300,
+		autoplaySpeed: 1000,
+		autoplay: false,
+		arrows: false,
+		slidesToScroll: 1,
+		slidesToShow: 1,
+		accessibility: false,
+	});
 
-})();
+	$('[data-fancybox]').fancybox({
+		// Options will go here
+		buttons : [
+		  'close'
+		],
+		wheel : false,
+		transitionEffect: "slide",
+		 // thumbs          : false,
+		// hash            : false,
+		loop            : true,
+		// keyboard        : true,
+		toolbar         : false,
+		// animationEffect : false,
+		// arrows          : true,
+		clickContent    : false
+	});
+
+	jQuery(".client-slider").slick({
+		dots: false,
+		arrows: false,
+		infinite: true,
+		centerMode: true,
+		autoplay: true,
+		slidesToScroll: 1,
+		accessibility: false,
+		mobileFirst:true,
+		variableWidth: true,
+		cssEase: 'linear',
+		autoplaySpeed: 0,
+		speed: 2500,
+		pauseOnHover: true,
+		responsive: [
+		  {
+			breakpoint: 1200,
+			settings: {
+			  slidesToShow: 5,
+			  centerPadding: '100px',
+			}
+		  },
+		  {
+			breakpoint: 1024,
+			settings: {
+			  slidesToShow: 3,
+			  centerPadding: '30px',
+			}
+		  },
+		  {
+			breakpoint: 600,
+			settings: {
+			  slidesToShow: 2,
+			  centerPadding: '30px',
+			}
+		  },
+		  {
+			breakpoint: 480,
+			settings: {
+			  slidesToShow: 1,
+			  centerPadding: '10px',
+			}
+		  },
+		  {
+			breakpoint: 250,
+			settings: {
+			  slidesToShow: 1,
+			  centerPadding: '0px',
+			}
+		  }
+  
+		]
+	});
+
+	var path = window.location.href; 
+    // because the 'href' property of the DOM element is the absolute path
+    jQuery('ul li a').each(function() {
+      if (this.href === path) {
+        jQuery(this).parent().addClass('active');
+      }
+    });
+});
